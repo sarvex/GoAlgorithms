@@ -89,13 +89,15 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 ---
 ##### Functions:
 
-1. [`BitCounter`](./math/binary/bitcounter.go#L11):  BitCounter - The function returns the number of set bits for an unsigned integer number
-2. [`IsPowerOfTwo`](./math/binary/checkisnumberpoweroftwo.go#L19):  IsPowerOfTwo This function uses the fact that powers of 2 are represented like 10...0 in binary, and numbers one less than the power of 2 are represented like 11...1. Therefore, using the and function:    10...0  & 01...1    00...0 -> 0 This is also true for 0, which is not a power of 2, for which we have to add and extra condition.
-3. [`IsPowerOfTwoLeftShift`](./math/binary/checkisnumberpoweroftwo.go#L26):  IsPowerOfTwoLeftShift This function takes advantage of the fact that left shifting a number by 1 is equivalent to multiplying by 2. For example, binary 00000001 when shifted by 3 becomes 00001000, which in decimal system is 8 or = 2 * 2 * 2
-4. [`MeanUsingAndXor`](./math/binary/arithmeticmean.go#L12):  MeanUsingAndXor This function finds arithmetic mean using "AND" and "XOR" operations
-5. [`MeanUsingRightShift`](./math/binary/arithmeticmean.go#L17):  MeanUsingRightShift This function finds arithmetic mean using right shift
-6. [`ReverseBits`](./math/binary/reversebits.go#L14):  ReverseBits This function initialized the result by 0 (all bits 0) and process the given number starting from its least significant bit. If the current bit is 1, set the corresponding most significant bit in the result and finally move on to the next bit in the input number. Repeat this till all its bits are processed.
-7. [`XorSearchMissingNumber`](./math/binary/xorsearch.go#L11):  XorSearchMissingNumber This function finds a missing number in a sequence
+1. [`Abs`](./math/binary/abs.go#L10):  Abs returns absolute value using binary operation Principle of operation: 1) Get the mask by right shift by the base 2) Base is the size of an integer variable in bits, for example, for int32 it will be 32, for int64 it will be 64 3) For negative numbers, above step sets mask as 1 1 1 1 1 1 1 1 and 0 0 0 0 0 0 0 0 for positive numbers. 4) Add the mask to the given number. 5) XOR of mask + n and mask gives the absolute value.
+2. [`BitCounter`](./math/binary/bitcounter.go#L11):  BitCounter - The function returns the number of set bits for an unsigned integer number
+3. [`IsPowerOfTwo`](./math/binary/checkisnumberpoweroftwo.go#L19):  IsPowerOfTwo This function uses the fact that powers of 2 are represented like 10...0 in binary, and numbers one less than the power of 2 are represented like 11...1. Therefore, using the and function:    10...0  & 01...1    00...0 -> 0 This is also true for 0, which is not a power of 2, for which we have to add and extra condition.
+4. [`IsPowerOfTwoLeftShift`](./math/binary/checkisnumberpoweroftwo.go#L26):  IsPowerOfTwoLeftShift This function takes advantage of the fact that left shifting a number by 1 is equivalent to multiplying by 2. For example, binary 00000001 when shifted by 3 becomes 00001000, which in decimal system is 8 or = 2 * 2 * 2
+5. [`MeanUsingAndXor`](./math/binary/arithmeticmean.go#L12):  MeanUsingAndXor This function finds arithmetic mean using "AND" and "XOR" operations
+6. [`MeanUsingRightShift`](./math/binary/arithmeticmean.go#L17):  MeanUsingRightShift This function finds arithmetic mean using right shift
+7. [`ReverseBits`](./math/binary/reversebits.go#L14):  ReverseBits This function initialized the result by 0 (all bits 0) and process the given number starting from its least significant bit. If the current bit is 1, set the corresponding most significant bit in the result and finally move on to the next bit in the input number. Repeat this till all its bits are processed.
+8. [`SequenceGrayCode`](./math/binary/rbc.go#L11):  SequenceGrayCode The function generates an "Gray code" sequence of length n
+9. [`XorSearchMissingNumber`](./math/binary/xorsearch.go#L11):  XorSearchMissingNumber This function finds a missing number in a sequence
 
 ---
 </details><details>
@@ -147,6 +149,19 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 ##### Functions:
 
 1. [`CatalanNumber`](./math/catalan/catalannumber.go#L16):  CatalanNumber This function returns the `nth` Catalan number
+
+---
+</details><details>
+	<summary> <strong> checksum </strong> </summary>	
+
+---
+
+#####  Package checksum describes algorithms for finding various checksums
+
+---
+##### Functions:
+
+1. [`LuhnAlgorithm`](./checksum/luhn.go#L11):  LuhnAlgorithm This function calculates the checksum using the Luna algorithm
 
 ---
 </details><details>
@@ -209,6 +224,25 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ---
 </details><details>
+	<summary> <strong> crc </strong> </summary>	
+
+---
+
+#####  Package crc describes algorithms for finding various CRC checksums
+
+---
+##### Functions:
+
+1. [`CalculateCRC8`](./checksum/crc/crc8.go#L26):  CalculateCRC8 This function calculate CRC8 checksum.
+
+---
+##### Types
+
+1. [`CRCModel`](./checksum/crc/crc8.go#L16): No description provided.
+
+
+---
+</details><details>
 	<summary> <strong> diffiehellman </strong> </summary>	
 
 ---
@@ -241,13 +275,14 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 7. [`Knapsack`](./dynamic/knapsack.go#L17):  Knapsack solves knapsack problem return maxProfit
 8. [`LongestCommonSubsequence`](./dynamic/longestcommonsubsequence.go#L8):  LongestCommonSubsequence function
 9. [`LongestIncreasingSubsequence`](./dynamic/longestincreasingsubsequence.go#L9):  LongestIncreasingSubsequence returns the longest increasing subsequence where all elements of the subsequence are sorted in increasing order
-10. [`LpsDp`](./dynamic/longestpalindromicsubsequence.go#L21):  LpsDp function
-11. [`LpsRec`](./dynamic/longestpalindromicsubsequence.go#L7):  LpsRec function
-12. [`MatrixChainDp`](./dynamic/matrixmultiplication.go#L24):  MatrixChainDp function
-13. [`MatrixChainRec`](./dynamic/matrixmultiplication.go#L10):  MatrixChainRec function
-14. [`Max`](./dynamic/knapsack.go#L11):  Max function - possible duplicate
-15. [`NthCatalanNumber`](./dynamic/catalan.go#L13):  NthCatalan returns the n-th Catalan Number Complexity: O(n²)
-16. [`NthFibonacci`](./dynamic/fibonacci.go#L6):  NthFibonacci returns the nth Fibonacci Number
+10. [`LongestIncreasingSubsequenceGreedy`](./dynamic/longestincreasingsubsequencegreedy.go#L9):  LongestIncreasingSubsequenceGreedy is a function to find the longest increasing subsequence in a given array using a greedy approach. The dynamic programming approach is implemented alongside this one. Worst Case Time Complexity: O(nlogn) Auxiliary Space: O(n), where n is the length of the array(slice). Reference: https://www.geeksforgeeks.org/construction-of-longest-monotonically-increasing-subsequence-n-log-n/
+11. [`LpsDp`](./dynamic/longestpalindromicsubsequence.go#L21):  LpsDp function
+12. [`LpsRec`](./dynamic/longestpalindromicsubsequence.go#L7):  LpsRec function
+13. [`MatrixChainDp`](./dynamic/matrixmultiplication.go#L24):  MatrixChainDp function
+14. [`MatrixChainRec`](./dynamic/matrixmultiplication.go#L10):  MatrixChainRec function
+15. [`Max`](./dynamic/knapsack.go#L11):  Max function - possible duplicate
+16. [`NthCatalanNumber`](./dynamic/catalan.go#L13):  NthCatalan returns the n-th Catalan Number Complexity: O(n²)
+17. [`NthFibonacci`](./dynamic/fibonacci.go#L6):  NthFibonacci returns the nth Fibonacci Number
 
 ---
 </details><details>
@@ -286,7 +321,8 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ##### Functions:
 
-1. [`Matrix`](./math/fibonacci/fibonacci.go#L11):  Matrix This function calculates the n-th fibonacci number using the matrix method. [See](https://en.wikipedia.org/wiki/Fibonacci_number#Matrix_form)
+1. [`Formula`](./math/fibonacci/fibonacci.go#L42):  Formula This function calculates the n-th fibonacci number using the [formula](https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio) Attention! Tests for large values fall due to rounding error of floating point numbers, works well, only on small numbers
+2. [`Matrix`](./math/fibonacci/fibonacci.go#L15):  Matrix This function calculates the n-th fibonacci number using the matrix method. [See](https://en.wikipedia.org/wiki/Fibonacci_number#Matrix_form)
 
 ---
 </details><details>
@@ -374,16 +410,17 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 ---
 ##### Functions:
 
-1. [`BreadthFirstSearch`](./graph/breadthfirstsearch.go#L9):  BreadthFirstSearch is an algorithm for traversing and searching graph data structures. It starts at an arbitrary node of a graph, and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level. Worst-case performance	 		O(|V|+|E|)=O(b^{d})}O(|V|+|E|)=O(b^{d}) Worst-case space complexity	 	O(|V|)=O(b^{d})}O(|V|)=O(b^{d}) reference: https://en.wikipedia.org/wiki/Breadth-first_search
-2. [`DepthFirstSearch`](./graph/depthfirstsearch.go#L53): No description provided.
-3. [`DepthFirstSearchHelper`](./graph/depthfirstsearch.go#L21): No description provided.
-4. [`FloydWarshall`](./graph/floydwarshall.go#L15):  FloydWarshall Returns all pair's shortest path using Floyd Warshall algorithm
-5. [`GetIdx`](./graph/depthfirstsearch.go#L3): No description provided.
-6. [`KruskalMST`](./graph/kruskal.go#L87):  KruskalMST will return a minimum spanning tree along with its total cost to using Kruskal's algorithm. Time complexity is O(m * log (n)) where m is the number of edges in the graph and n is number of nodes in it.
-7. [`New`](./graph/graph.go#L16):  Constructor functions for graphs (undirected by default)
-8. [`NewDSU`](./graph/kruskal.go#L34):  NewDSU will return an initialised DSU using the value of n which will be treated as the number of elements out of which the DSU is being made
-9. [`NotExist`](./graph/depthfirstsearch.go#L12): No description provided.
-10. [`Topological`](./graph/topological.go#L7):  Assumes that graph given is valid and possible to get a topo ordering. constraints are array of []int{a, b}, representing an edge going from a to b
+1. [`ArticulationPoint`](./graph/articulationpoints.go#L19):  ArticulationPoint is a function to identify articulation points in a graph. The function takes the graph as an argument and returns a boolean slice which indicates whether a vertex is an articulation point or not. Worst Case Time Complexity: O(|V| + |E|) Auxiliary Space: O(|V|) reference: https://en.wikipedia.org/wiki/Biconnected_component and https://cptalks.quora.com/Cut-Vertex-Articulation-point
+2. [`BreadthFirstSearch`](./graph/breadthfirstsearch.go#L9):  BreadthFirstSearch is an algorithm for traversing and searching graph data structures. It starts at an arbitrary node of a graph, and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level. Worst-case performance	 		O(|V|+|E|)=O(b^{d})}O(|V|+|E|)=O(b^{d}) Worst-case space complexity	 	O(|V|)=O(b^{d})}O(|V|)=O(b^{d}) reference: https://en.wikipedia.org/wiki/Breadth-first_search
+3. [`DepthFirstSearch`](./graph/depthfirstsearch.go#L53): No description provided.
+4. [`DepthFirstSearchHelper`](./graph/depthfirstsearch.go#L21): No description provided.
+5. [`FloydWarshall`](./graph/floydwarshall.go#L15):  FloydWarshall Returns all pair's shortest path using Floyd Warshall algorithm
+6. [`GetIdx`](./graph/depthfirstsearch.go#L3): No description provided.
+7. [`KruskalMST`](./graph/kruskal.go#L87):  KruskalMST will return a minimum spanning tree along with its total cost to using Kruskal's algorithm. Time complexity is O(m * log (n)) where m is the number of edges in the graph and n is number of nodes in it.
+8. [`New`](./graph/graph.go#L16):  Constructor functions for graphs (undirected by default)
+9. [`NewDSU`](./graph/kruskal.go#L34):  NewDSU will return an initialised DSU using the value of n which will be treated as the number of elements out of which the DSU is being made
+10. [`NotExist`](./graph/depthfirstsearch.go#L12): No description provided.
+11. [`Topological`](./graph/topological.go#L7):  Assumes that graph given is valid and possible to get a topo ordering. constraints are array of []int{a, b}, representing an edge going from a to b
 
 ---
 ##### Types
@@ -506,8 +543,9 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 ---
 ##### Functions:
 
-1. [`IsPowOfTwoUseLog`](./math/checkisnumberpoweroftwo.go#L10):  IsPowOfTwoUseLog This function checks if a number is a power of two using the logarithm. The limiting degree can be from 0 to 63. See alternatives in the binary package.
-2. [`Phi`](./math/eulertotient.go#L5):  Phi is the Euler totient function. This function computes the number of numbers less then n that are coprime with n.
+1. [`Abs`](./math/abs.go#L11):  Abs returns absolute value
+2. [`IsPowOfTwoUseLog`](./math/checkisnumberpoweroftwo.go#L10):  IsPowOfTwoUseLog This function checks if a number is a power of two using the logarithm. The limiting degree can be from 0 to 63. See alternatives in the binary package.
+3. [`Phi`](./math/eulertotient.go#L5):  Phi is the Euler totient function. This function computes the number of numbers less then n that are coprime with n.
 
 ---
 </details><details>
@@ -588,6 +626,7 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 ##### Functions:
 
 1. [`IsPalindrome`](./strings/palindrome/ispalindrome.go#L26): No description provided.
+2. [`IsPalindromeRecursive`](./strings/palindrome/ispalindrome.go#L39): No description provided.
 
 ---
 </details><details>
@@ -819,14 +858,15 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 4. [`HeapSort`](./sort/heapsort.go#L121): No description provided.
 5. [`ImprovedSimpleSort`](./sort/simplesort.go#L25):  ImprovedSimpleSort is a improve SimpleSort by skipping an unnecessary comparison of the first and last. This improved version is more similar to implementation of insertion sort
 6. [`InsertionSort`](./sort/insertionsort.go#L3): No description provided.
-7. [`Mergesort`](./sort/mergesort.go#L35): Mergesort Perform mergesort on a slice of ints
-8. [`Pigeonhole`](./sort/pigeonholesort.go#L12):  Pigeonhole sorts a slice using pigeonhole sorting algorithm.
-9. [`QuickSort`](./sort/quicksort.go#L37):  QuickSort Sorts the entire array
-10. [`QuickSortRange`](./sort/quicksort.go#L24):  QuickSortRange Sorts the specified range within the array
-11. [`RadixSort`](./sort/radixsort.go#L35): No description provided.
-12. [`SelectionSort`](./sort/selectionsort.go#L3): No description provided.
-13. [`ShellSort`](./sort/shellsort.go#L3): No description provided.
-14. [`SimpleSort`](./sort/simplesort.go#L11): No description provided.
+7. [`MergeIter`](./sort/mergesort.go#L51): No description provided.
+8. [`Mergesort`](./sort/mergesort.go#L37): Mergesort Perform mergesort on a slice of ints
+9. [`Pigeonhole`](./sort/pigeonholesort.go#L12):  Pigeonhole sorts a slice using pigeonhole sorting algorithm.
+10. [`QuickSort`](./sort/quicksort.go#L37):  QuickSort Sorts the entire array
+11. [`QuickSortRange`](./sort/quicksort.go#L24):  QuickSortRange Sorts the specified range within the array
+12. [`RadixSort`](./sort/radixsort.go#L35): No description provided.
+13. [`SelectionSort`](./sort/selectionsort.go#L3): No description provided.
+14. [`ShellSort`](./sort/shellsort.go#L3): No description provided.
+15. [`SimpleSort`](./sort/simplesort.go#L11): No description provided.
 
 ---
 ##### Types
